@@ -1,0 +1,9 @@
+{
+    "is-main": false,
+    "import":[
+        {
+            "path": "ZSeanYves/Doclint/cmd/core",
+            "alias": "cor"
+        }
+    ]
+}

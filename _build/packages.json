@@ -1,0 +1,174 @@
+{
+  "source_dir": "/Users/winter/Documents/Moonbit/Doclint",
+  "name": "ZSeanYves/Doclint",
+  "packages": [
+    {
+      "is-main": false,
+      "is-third-party": false,
+      "root-path": "/Users/winter/Documents/Moonbit/Doclint/cmd/core",
+      "root": "ZSeanYves/Doclint",
+      "rel": "cmd/core",
+      "files": {
+        "/Users/winter/Documents/Moonbit/Doclint/cmd/core/engine.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/winter/Documents/Moonbit/Doclint/cmd/core/issue.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/winter/Documents/Moonbit/Doclint/cmd/core/model.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/winter/Documents/Moonbit/Doclint/cmd/core/report_html.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/winter/Documents/Moonbit/Doclint/cmd/core/report_json.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        },
+        "/Users/winter/Documents/Moonbit/Doclint/cmd/core/rule.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        }
+      },
+      "wbtest-files": {},
+      "test-files": {},
+      "mbt-md-files": {},
+      "deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/winter/.moon/lib/core/prelude"
+        }
+      ],
+      "wbtest-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/winter/.moon/lib/core/prelude"
+        }
+      ],
+      "test-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/winter/.moon/lib/core/prelude"
+        }
+      ],
+      "artifact": "/Users/winter/Documents/Moonbit/Doclint/_build/wasm-gc/release/check/cmd/core/core.mi"
+    },
+    {
+      "is-main": false,
+      "is-third-party": false,
+      "root-path": "/Users/winter/Documents/Moonbit/Doclint/cmd/doclint_rules_thesis",
+      "root": "ZSeanYves/Doclint",
+      "rel": "cmd/doclint_rules_thesis",
+      "files": {
+        "/Users/winter/Documents/Moonbit/Doclint/cmd/doclint_rules_thesis/rules.mbt": {
+          "backend": [
+            "Wasm",
+            "WasmGC",
+            "Js",
+            "Native",
+            "LLVM"
+          ],
+          "optlevel": [
+            "Release",
+            "Debug"
+          ]
+        }
+      },
+      "wbtest-files": {},
+      "test-files": {},
+      "mbt-md-files": {},
+      "deps": [
+        {
+          "path": "ZSeanYves/Doclint/cmd/core",
+          "alias": "cor",
+          "fspath": "/Users/winter/Documents/Moonbit/Doclint/cmd/core"
+        },
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/winter/.moon/lib/core/prelude"
+        }
+      ],
+      "wbtest-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/winter/.moon/lib/core/prelude"
+        }
+      ],
+      "test-deps": [
+        {
+          "path": "moonbitlang/core/prelude",
+          "alias": "prelude",
+          "fspath": "/Users/winter/.moon/lib/core/prelude"
+        }
+      ],
+      "artifact": "/Users/winter/Documents/Moonbit/Doclint/_build/wasm-gc/release/check/cmd/doclint_rules_thesis/doclint_rules_thesis.mi"
+    }
+  ],
+  "deps": [],
+  "backend": "wasm-gc",
+  "opt_level": "release",
+  "source": null
+}
