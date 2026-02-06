@@ -1,0 +1,9 @@
+{
+  "name": "ZSeanYves/Doclint",
+  "version": "0.1.0",
+  "readme": "README.mbt.md",
+  "repository": "https://github.com/ZSeanYves/Doclint.git",
+  "license": "Apache-2.0",
+  "keywords": [],
+  "description": "MoonBit-powered document compliance linting engine with pluggable rulesets and HTML/JSON reporting (embeddable via Wasm)."
+}
