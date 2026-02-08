@@ -21,6 +21,11 @@
       "artifact": "/Users/winter/Documents/Moonbit/Doclint/_build/wasm-gc/release/build/src/doclint_rules_thesis/doclint_rules_thesis.mi"
     },
     {
+      "root": "ZSeanYves/Doclint",
+      "rel": "src/wasm",
+      "artifact": "/Users/winter/Documents/Moonbit/Doclint/_build/wasm-gc/release/build/src/wasm/wasm.mi"
+    },
+    {
       "root": "moonbitlang/core",
       "rel": "abort",
       "artifact": "/Users/winter/.moon/lib/core/target/wasm-gc/release/bundle/abort/abort.mi"

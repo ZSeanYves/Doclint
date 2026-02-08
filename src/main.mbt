@@ -36,143 +36,33 @@ fn join_path(dir : String, file : String) -> String {
   dir + "/" + file
 }
 
-fn drop1(xs : Array[String]) -> Array[String] {
-  let out : Array[String] = []
-  let mut i = 0
-  for x in xs {
-    if i > 0 { out.push(x) }
-    i = i + 1
-  }
-  out
-}
-
-
 
 ///|
 fn main {
-  let args = drop1(@sys.get_cli_args())
-  let mut rules_name = "thesis"
-  let mut in_path = "test_golden/case2.in.json"
-  let mut out_dir = "out"
-  let mut emit_html = true
-  let mut i = 0
-  while i < args.length() {
-    let a = args[i]
-    if a == "--help" || a == "-h" {
-      print_help()
-      @sys.exit(0)
-    } else if a == "--rules" {
-      if i + 1 >= args.length() {
-        println("missing value for --rules")
-        print_help()
-        @sys.exit(1)
-      }
-      rules_name = args[i + 1]
-      i = i + 2
-      continue
-    } else if a == "--in" {
-      if i + 1 >= args.length() {
-        println("missing value for --in")
-        print_help()
-        @sys.exit(1)
-      }
-      in_path = args[i + 1]
-      i = i + 2
-      continue
-    } else if a == "--outdir" {
-      if i + 1 >= args.length() {
-        println("missing value for --outdir")
-        print_help()
-        @sys.exit(1)
-      }
-      out_dir = args[i + 1]
-      i = i + 2
-      continue
-    } else if a == "--no-html" {
-      emit_html = false
-      i = i + 1
-      continue
-    } else {
-      println("unknown arg: " + a)
-      print_help()
-      @sys.exit(1)
-    }
-  }
+  // TODO：之后再接 argv
+  let rules_name = "thesis"
+  let in_path = "src/test_golden/case1.in.json"
+  let out_dir = "src/out"
   ensure_dir(out_dir)
   let out_json_path = join_path(out_dir, "report.json")
   let out_html_path = join_path(out_dir, "report.html")
-  let doc_json_res = read_utf8(in_path)
-  let doc_json = match doc_json_res {
+  let doc_json = match read_utf8(in_path) {
     Err(msg) => {
       println(msg)
-      @sys.exit(1)
-      ""
+      return ()
     }
     Ok(s) => s
   }
-  let doc_res = @cor.parse_doc_json(doc_json)
-  let doc = match doc_res {
-    Err(e) => {
-      let issues : Array[@cor.Issue] = [
-        @cor.mk_issue(
-          "core.parse",
-          @cor.Severity::Error,
-          "文档 JSON 解析失败: " + e,
-          None,
-        ),
-      ]
-      write_out(out_json_path, out_html_path, issues, emit_html)
-      @sys.exit(1)
-      return ()
-    }
-    Ok(d) => d
-  }
-  let ctx : @cor.RuleContext = @cor.RuleContext::{  }
-  let issues = if rules_name == "contract" {
-    let rs = @con.build_ruleset()
-    let rules = @con.as_rules_ref(rs)
-    @cor.check_doc(ctx, doc, rules)
-  } else {
-    let rs = @the.build_ruleset()
-    let rules = @the.as_rules_ref(rs)
-    @cor.check_doc(ctx, doc, rules)
-  }
-  write_out(out_json_path, out_html_path, issues, emit_html)
-  @sys.exit(0)
-}
 
-///|
-fn write_out(
-  out_json_path : String,
-  out_html_path : String,
-  issues : Array[@cor.Issue],
-  emit_html : Bool,
-) -> Unit {
-  match write_utf8(out_json_path, @cor.issues_to_json(issues)) {
-    Ok(_) => println("written: " + out_json_path)
+  // 核心：全部交给纯函数 API
+  let json_out = @wasm.check_json_with_ruleset(rules_name, doc_json)
+  let html_out = @wasm.check_html_with_ruleset(rules_name, doc_json)
+  match write_utf8(out_json_path, json_out) {
+    Ok(_) => ()
     Err(msg) => println(msg)
   }
-  if emit_html {
-    match write_utf8(out_html_path, @cor.issues_to_html(issues)) {
-      Ok(_) => println("written: " + out_html_path)
-      Err(msg) => println(msg)
-    }
+  match write_utf8(out_html_path, html_out) {
+    Ok(_) => ()
+    Err(msg) => println(msg)
   }
-}
-
-///|
-fn print_help() -> Unit {
-  println(
-    "Usage:\n" +
-    "  doclint --rules thesis|contract --in <file> --outdir <dir> [--no-html]\n" +
-    "\n" +
-    "Examples:\n" +
-    "  doclint --rules thesis --in test_golden/case1.in.json\n" +
-    "  doclint --rules contract --in test_golden/case2.in.json --outdir out\n" +
-    "\n" +
-    "Defaults:\n" +
-    "  --rules thesis\n" +
-    "  --in test_golden/case2.in.json\n" +
-    "  --outdir out\n",
-  )
 }

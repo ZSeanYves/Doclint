@@ -1,5 +1,5 @@
 {
-    "is-main": true,
+    "is-main": false,
     "import":[
         {
             "path": "ZSeanYves/Doclint/src/core",
@@ -12,14 +12,15 @@
         {
             "path": "ZSeanYves/Doclint/src/doclint_rules_contract",
             "alias": "con"
-        },
-        {
-            "path":"moonbitlang/x/fs",
-            "alias": "fs"
-        },
-        {
-            "path": "ZSeanYves/Doclint/src/wasm",
-            "alias": "wasm"
         }
-    ]
+    ],
+    "link": {
+        "wasm-gc": {
+            "exports": [
+                "check_json_with_ruleset_wasm",
+                "check_html_with_ruleset_wasm"
+            ],
+            "use-js-builtin-string": true
+            }
+        }
 }
