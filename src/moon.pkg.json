@@ -1,0 +1,21 @@
+{
+    "is-main": true,
+    "import":[
+        {
+            "path": "ZSeanYves/Doclint/src/core",
+            "alias": "cor"
+        },
+        {
+            "path": "ZSeanYves/Doclint/src/doclint_rules_thesis",
+            "alias": "the"
+        },
+        {
+            "path": "ZSeanYves/Doclint/src/doclint_rules_contract",
+            "alias": "con"
+        },
+        {
+            "path":"moonbitlang/x/fs",
+            "alias": "fs"
+        }
+    ]
+}

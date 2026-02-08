@@ -2,18 +2,23 @@
   "packages": [
     {
       "root": "ZSeanYves/Doclint",
-      "rel": "cmd/core",
-      "artifact": "/Users/winter/Documents/Moonbit/Doclint/_build/wasm-gc/release/check/cmd/core/core.mi"
+      "rel": "src",
+      "artifact": "/Users/winter/Documents/Moonbit/Doclint/_build/wasm-gc/release/check/src/src.mi"
     },
     {
       "root": "ZSeanYves/Doclint",
-      "rel": "cmd/doclint_rules_thesis",
-      "artifact": "/Users/winter/Documents/Moonbit/Doclint/_build/wasm-gc/release/check/cmd/doclint_rules_thesis/doclint_rules_thesis.mi"
+      "rel": "src/core",
+      "artifact": "/Users/winter/Documents/Moonbit/Doclint/_build/wasm-gc/release/check/src/core/core.mi"
     },
     {
       "root": "ZSeanYves/Doclint",
-      "rel": "cmd/test",
-      "artifact": "/Users/winter/Documents/Moonbit/Doclint/_build/wasm-gc/release/check/cmd/test/test.mi"
+      "rel": "src/doclint_rules_contract",
+      "artifact": "/Users/winter/Documents/Moonbit/Doclint/_build/wasm-gc/release/check/src/doclint_rules_contract/doclint_rules_contract.mi"
+    },
+    {
+      "root": "ZSeanYves/Doclint",
+      "rel": "src/doclint_rules_thesis",
+      "artifact": "/Users/winter/Documents/Moonbit/Doclint/_build/wasm-gc/release/check/src/doclint_rules_thesis/doclint_rules_thesis.mi"
     },
     {
       "root": "moonbitlang/core",

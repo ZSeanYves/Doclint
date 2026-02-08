@@ -17,6 +17,7 @@ let moonbit_test_driver_internal_no_args_tests : MoonBitTestDriverInternalTestMa
 ] = {
   "Doclint_test.mbt": {
     0: (__test_446f636c696e745f746573742e6d6274_0, ["golden all cases (file-based)"]),
+    1: (__test_446f636c696e745f746573742e6d6274_1, ["ruleset switch should change behavior"]),
   },
 }
 

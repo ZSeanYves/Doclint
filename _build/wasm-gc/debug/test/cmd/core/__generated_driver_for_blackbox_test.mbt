@@ -21,6 +21,8 @@ let moonbit_test_driver_internal_no_args_tests : MoonBitTestDriverInternalTestMa
   },
   "report_html.mbt": {
   },
+  "parse_json.mbt": {
+  },
   "model.mbt": {
   },
   "issue.mbt": {
@@ -38,6 +40,8 @@ let moonbit_test_driver_internal_with_args_tests : MoonBitTestDriverInternalTest
   "report_json.mbt": {
   },
   "report_html.mbt": {
+  },
+  "parse_json.mbt": {
   },
   "model.mbt": {
   },
@@ -57,6 +61,8 @@ let moonbit_test_driver_internal_async_tests : MoonBitTestDriverInternalTestMap[
   },
   "report_html.mbt": {
   },
+  "parse_json.mbt": {
+  },
   "model.mbt": {
   },
   "issue.mbt": {
@@ -74,6 +80,8 @@ let moonbit_test_driver_internal_async_tests_with_args : MoonBitTestDriverIntern
   "report_json.mbt": {
   },
   "report_html.mbt": {
+  },
+  "parse_json.mbt": {
   },
   "model.mbt": {
   },

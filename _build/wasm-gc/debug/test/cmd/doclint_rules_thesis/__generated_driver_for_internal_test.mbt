@@ -16,7 +16,6 @@ let moonbit_test_driver_internal_no_args_tests : MoonBitTestDriverInternalTestMa
   () -> Unit raise,
 ] = {
   "rules.mbt": {
-    0: (__test_72756c65732e6d6274_0, ["golden case1 baseline"]),
   },
 }
 
