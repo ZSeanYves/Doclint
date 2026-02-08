@@ -40,13 +40,16 @@ fn join_path(dir : String, file : String) -> String {
 ///|
 fn main {
   let rules_name = "thesis"
-  let in_path = "cmd/test/golden/case2.in.json"
-  let out_dir = "cmd/out"
+  let in_path = "src/test_golden/case2.in.json"
+  let out_dir = "src/out"
   ensure_dir(out_dir)
   let out_json_path = join_path(out_dir, "report.json")
   let out_html_path = join_path(out_dir, "report.html")
   let doc_json = match read_utf8(in_path) {
-    Err(_msg) => return ()
+    Err(msg) => {
+      println(msg)
+      return ()
+    }
     Ok(s) => s
   }
   let doc = match @cor.parse_doc_json(doc_json) {
@@ -59,9 +62,16 @@ fn main {
           None,
         ),
       ]
+
       // parse 失败：仍然输出 json + html
-      let _ = write_utf8(out_json_path, @cor.issues_to_json(issues))
-      let _ = write_utf8(out_html_path, @cor.issues_to_html(issues))
+      match write_utf8(out_json_path, @cor.issues_to_json(issues)) {
+        Ok(_) => ()
+        Err(msg) => println(msg)
+      }
+      match write_utf8(out_html_path, @cor.issues_to_html(issues)) {
+        Ok(_) => ()
+        Err(msg) => println(msg)
+      }
       return ()
     }
     Ok(d) => d
@@ -78,10 +88,16 @@ fn main {
   }
 
   // 成功：输出 json + html
-  let _ = write_utf8(out_json_path, @cor.issues_to_json(issues))
-  let _ = write_utf8(out_html_path, @cor.issues_to_html(issues))
-
+  match write_utf8(out_json_path, @cor.issues_to_json(issues)) {
+    Ok(_) => ()
+    Err(msg) => println(msg)
+  }
+  match write_utf8(out_html_path, @cor.issues_to_html(issues)) {
+    Ok(_) => ()
+    Err(msg) => println(msg)
+  }
 }
+
 
 
 
