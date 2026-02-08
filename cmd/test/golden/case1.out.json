@@ -1,0 +1,1 @@
+{"issues":[{"rule_id":"thesis.page_limit","severity":"Error","message":"页数不符合要求","location":null},{"rule_id":"basic.require_abstract","severity":"Error","message":"缺少必需内容：摘要","location":null}]}

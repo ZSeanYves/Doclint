@@ -1,0 +1,7 @@
+{
+  "meta": { "title": "t2", "author": "a2", "created_at": "x2" },
+  "pages": [
+    { "index": 0, "text": "摘要\n这是摘要内容" },
+    { "index": 1, "text": "正文\n参考文献\n[1] ..." }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "meta": { "title": "t3", "author": "a3", "created_at": "x3" },
+  "pages": [
+    { "index": 0, "text": "正文第一部分" },
+    { "index": 1, "text": "正文第二部分\n参考文献\n[1] ..." }
+  ]
+}

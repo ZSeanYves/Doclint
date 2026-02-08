@@ -15,33 +15,24 @@ priv struct MoonBitTestDriverInternalTestMap[F] (
 let moonbit_test_driver_internal_no_args_tests : MoonBitTestDriverInternalTestMap[
   () -> Unit raise,
 ] = {
-  "rules.mbt": {
-    0: (__test_72756c65732e6d6274_0, ["golden case1 baseline"]),
-  },
 }
 
 ///|
 let moonbit_test_driver_internal_with_args_tests : MoonBitTestDriverInternalTestMap[
   (Moonbit_Test_Driver_Internal_Test_Arg) -> Unit raise,
 ] = {
-  "rules.mbt": {
-  },
 }
 
 ///|
 let moonbit_test_driver_internal_async_tests : MoonBitTestDriverInternalTestMap[
   async () -> Unit,
 ] = {
-  "rules.mbt": {
-  },
 }
 
 ///|
 let moonbit_test_driver_internal_async_tests_with_args : MoonBitTestDriverInternalTestMap[
   async (Moonbit_Test_Driver_Internal_Test_Arg) -> Unit,
 ] = {
-  "rules.mbt": {
-  },
 }
 
 ///|
@@ -94,7 +85,7 @@ pub fn moonbit_test_driver_internal_do_execute(
     let message = message.escape()
     @moonbitlang/core/prelude.println("----- BEGIN MOON TEST RESULT -----")
     @moonbitlang/core/prelude.println(
-      "{\"package\": \"ZSeanYves/Doclint/cmd/doclint_rules_thesis\", \"filename\": \{file_name}, \"index\": \"\{index}\", \"test_name\": \{test_name}, \"message\": \{message}}",
+      "{\"package\": \"ZSeanYves/Doclint/cmd/test\", \"filename\": \{file_name}, \"index\": \"\{index}\", \"test_name\": \{test_name}, \"message\": \{message}}",
     )
     @moonbitlang/core/prelude.println("----- END MOON TEST RESULT -----")
   }
