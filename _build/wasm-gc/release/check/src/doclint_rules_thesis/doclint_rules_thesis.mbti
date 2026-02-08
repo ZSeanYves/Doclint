@@ -1,0 +1,37 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ZSeanYves/Doclint/src/doclint_rules_thesis"
+
+import {
+  "ZSeanYves/Doclint/src/core",
+}
+
+// Values
+pub fn as_rules_ref(ThesisRuleset) -> Array[&@core.Rule]
+
+pub fn build_ruleset() -> ThesisRuleset
+
+// Errors
+
+// Types and methods
+pub(all) struct PageLimitRule {
+  min : Int
+  max : Int
+}
+pub impl @core.Rule for PageLimitRule
+
+pub(all) struct RequireKeywordRule {
+  rid : String
+  keyword : String
+  sev : @core.Severity
+}
+pub impl @core.Rule for RequireKeywordRule
+
+pub(all) struct ThesisRuleset {
+  page_limit : PageLimitRule
+  require_abs : RequireKeywordRule
+}
+
+// Type aliases
+
+// Traits
+

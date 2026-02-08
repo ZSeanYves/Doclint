@@ -1,119 +1,76 @@
-# ZSeanYves/Doclint
-## Doclint WASM Engine (MVP)
+# Doclint
 
-This project compiles a **MoonBit** rule-checking core into a **WASM (wasm-gc) engine**, and ships a **Node host demo** that takes a document JSON as input and produces both:
+Doclint is a **MoonBit-powered rule engine** compiled to **WASM (wasm-gc)**. A Node host demo is provided to feed document JSON into the engine and generate:
 
-* `report.json` (machine-readable)
-* `report.html` (human-readable)
-
-### Stable WASM Exports
-
-* `check_json_with_ruleset_wasm(ruleset: String, doc_json: String) -> String`
-* `check_html_with_ruleset_wasm(ruleset: String, doc_json: String) -> String`
-
-### Ruleset Switching
-
-Supported rulesets (demo defaults to `thesis`):
-
-* `thesis`
-* `contract`
+* `report.json` (machine-readable issues)
+* `report.html` (human-readable report)
 
 ---
 
-## Requirements
+## What you get (MVP)
 
-* MoonBit toolchain installed (`moon` available in PATH)
-* Node.js (a recent version is recommended)
+* **WASM engine artifact**: `dist/doclint.wasm`
+* **Stable WASM exports** (string in → string out):
 
-  * The demo uses **imported strings**, so Node must be run with the corresponding experimental flag.
-
-> Note: The WASM engine is **pure** (string in → string out) and does **not** rely on a filesystem. All file I/O is handled by the host (Node).
+  * `check_json_with_ruleset_wasm(ruleset: String, doc_json: String) -> String`
+  * `check_html_with_ruleset_wasm(ruleset: String, doc_json: String) -> String`
+* **Ruleset switching**: `thesis` / `contract`
 
 ---
 
-## Quick Run (Recommended)
+## Quickstart
 
-If the repository provides a `Makefile`, run:
+### Option A: One-command demo (recommended)
+
+If a `Makefile` is available at repo root:
 
 ```bash
 make demo
 ```
 
-Outputs will be generated at:
+Outputs:
 
 * `examples/node/report.json`
 * `examples/node/report.html`
 
----
+### Option B: Manual run
 
-## Manual Run (Without Makefile)
-
-### 1) Build WASM
+1. Build WASM:
 
 ```bash
 moon build --target wasm-gc
 ```
 
-It is recommended to copy the build artifact to a stable location:
-
-* `dist/doclint.wasm`
-
-(If you use a script/Makefile, the copy step can be automated.)
-
-### 2) Run the Node Demo (Enable imported strings)
+2. Run Node demo (enable imported strings):
 
 ```bash
 node --experimental-wasm-imported-strings examples/node/run.mjs
 ```
 
-### 3) Check Outputs
+3. Check outputs:
 
 * `examples/node/report.json`
 * `examples/node/report.html`
 
 ---
 
-## Input / Output
+## Where to look next
 
-* Input file: `examples/node/input.case1.json`
+* **Run & host integration (Node demo)**: `examples/node/README.md`
+* **Engine core (API, schema, rulesets, tests)**: `src/README.md`
+* **Rulesets**:
 
-  * You can replace it with other inputs as long as they follow the project’s document schema (`meta` + `pages[]`).
-* Output files:
-
-  * `examples/node/report.json`: issues list (machine-readable)
-  * `examples/node/report.html`: HTML report (summary + table)
-
----
-
-## Project Layout (Key Parts)
-
-```text
-dist/
-  doclint.wasm
-examples/
-  node/
-    run.mjs
-    input.case1.json
-    report.json        # generated after running
-    report.html        # generated after running
-src/
-  ... (MoonBit core and rulesets)
-```
+  * `thesis`: `src/doclint_rules_thesis/`
+  * `contract`: `src/doclint_rules_contract/`
+* **Golden tests**: `src/test_golden/` and `src/Doclint_test.mbt`
 
 ---
 
-## Troubleshooting
+## Requirements
 
-### Node reports errors related to imported strings
+* MoonBit toolchain (`moon`)
+* Node.js (recent version recommended)
 
-Make sure you are running:
+  * Run with: `--experimental-wasm-imported-strings`
 
-```bash
-node --experimental-wasm-imported-strings examples/node/run.mjs
-```
-
-Also ensure your Node version is recent enough. Older versions may not support the required experimental WASM features.
-
-### Copying the `.wasm` into `dist/` is annoying
-
-Use a `Makefile` or a small script to automate “build + copy”, f
+> Note: The WASM engine itself is pure (no filesystem). File I/O is handled by the host.

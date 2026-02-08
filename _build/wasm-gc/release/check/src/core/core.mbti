@@ -1,0 +1,77 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ZSeanYves/Doclint/src/core"
+
+// Values
+pub fn check_doc(RuleContext, Document, Array[&Rule]) -> Array[Issue]
+
+pub fn check_json(String, Array[&Rule], (String) -> Result[Document, String]) -> String
+
+pub fn issue_to_json(Issue) -> String
+
+pub fn issues_to_html(Array[Issue]) -> String
+
+pub fn issues_to_json(Array[Issue]) -> String
+
+pub fn location_to_json(Location) -> String
+
+pub fn mk_issue(String, Severity, String, Location?) -> Issue
+
+pub fn page_count(Document) -> Int
+
+pub fn parse_doc_json(String) -> Result[Document, String]
+
+pub fn run_rules(RuleContext, Document, Array[&Rule]) -> Array[Issue]
+
+pub fn severity_to_string(Severity) -> String
+
+pub fn slice(String, Int, Int) -> String
+
+// Errors
+
+// Types and methods
+pub(all) struct DocMeta {
+  title : String
+  author : String
+  created_at : String
+}
+
+pub(all) struct Document {
+  meta : DocMeta
+  pages : Array[Page]
+}
+
+pub(all) struct Issue {
+  rule_id : String
+  severity : Severity
+  message : String
+  location : Location?
+}
+
+pub(all) struct Location {
+  page : Int
+  span_start : Int
+  span_end : Int
+}
+
+pub(all) struct Page {
+  index : Int
+  text : String
+}
+
+pub(all) struct RuleContext {
+}
+
+pub(all) enum Severity {
+  Info
+  Warn
+  Error
+}
+
+// Type aliases
+
+// Traits
+pub(open) trait Rule {
+  id(Self) -> String
+  check(Self, RuleContext, Document) -> Array[Issue]
+}
+

@@ -1,0 +1,20 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ZSeanYves/Doclint/src/wasm"
+
+// Values
+pub fn check_html_with_ruleset(String, String) -> String
+
+pub fn check_html_with_ruleset_wasm(String, String) -> String
+
+pub fn check_json_with_ruleset(String, String) -> String
+
+pub fn check_json_with_ruleset_wasm(String, String) -> String
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits
+

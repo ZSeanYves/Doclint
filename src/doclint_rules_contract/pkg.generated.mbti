@@ -1,0 +1,25 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "ZSeanYves/Doclint/src/doclint_rules_contract"
+
+import {
+  "ZSeanYves/Doclint/src/core",
+  "ZSeanYves/Doclint/src/doclint_rules_thesis",
+}
+
+// Values
+pub fn as_rules_ref(ContractRuleset) -> Array[&@core.Rule]
+
+pub fn build_ruleset() -> ContractRuleset
+
+// Errors
+
+// Types and methods
+pub struct ContractRuleset {
+  page_limit : @doclint_rules_thesis.PageLimitRule
+  require_abs : @doclint_rules_thesis.RequireKeywordRule
+}
+
+// Type aliases
+
+// Traits
+
