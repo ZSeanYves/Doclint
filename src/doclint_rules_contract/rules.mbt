@@ -6,9 +6,9 @@ pub struct ContractRuleset {
 
 pub fn build_ruleset() -> ContractRuleset {
   {
-    page_limit: { min: 1, max: 200 }, // 举例：合同允许更长（你可按实际改）
+    page_limit: { min: 1, max: 200 }, // 合同允许更长
     require_abs: {
-      rid: "contract.require_title",   // 举例：合同规则可以检查“标题/甲方乙方/签署日期”等
+      rid: "contract.require_title",   // 合同规则可以检查“标题/甲方乙方/签署日期”等
       keyword: "合同",
       sev: @cor.Severity::Warn,
     },

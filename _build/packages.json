@@ -65,6 +65,11 @@
           "path": "moonbitlang/x/fs",
           "alias": "fs",
           "fspath": "/Users/winter/Documents/Moonbit/Doclint/.mooncakes/moonbitlang/x/fs"
+        },
+        {
+          "path": "moonbitlang/x/sys",
+          "alias": "sys",
+          "fspath": "/Users/winter/Documents/Moonbit/Doclint/.mooncakes/moonbitlang/x/sys"
         }
       ],
       "wbtest-deps": [

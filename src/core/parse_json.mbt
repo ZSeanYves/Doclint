@@ -115,7 +115,7 @@ fn parse_int_dec(s : String) -> Int? {
     if ch < '0' || ch > '9' {
       return None
     }
-    acc = acc * 10 + (ch.to_int() - '0'.to_int()) // 如果 Char 没 to_int，你告诉我我再换写法
+    acc = acc * 10 + (ch.to_int() - '0'.to_int()) 
     any = true
   }
   if any {
@@ -235,7 +235,7 @@ fn find_sub(s : String, pat : String, start : Int) -> Option[Int] {
 fn find_char(s : String, ch : Char, start : Int) -> Option[Int] {
   let mut i = start
   while i < s.length() {
-    if slice(s,i, i + 1) == ch.to_string() {  // 若你的 String API 没 nth，就用 slice(i,i+1) 比较
+    if slice(s,i, i + 1) == ch.to_string() {  
       return Some(i)
     }
     i = i + 1

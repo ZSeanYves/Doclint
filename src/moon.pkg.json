@@ -16,6 +16,10 @@
         {
             "path":"moonbitlang/x/fs",
             "alias": "fs"
+        },
+        {
+            "path":"moonbitlang/x/sys",
+            "alias": "sys"
         }
     ]
 }

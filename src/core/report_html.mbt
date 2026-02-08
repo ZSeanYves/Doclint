@@ -100,7 +100,6 @@ fn issue_row_html(it : Issue) -> String {
   let loc = match it.location {
     None => ""
     Some(l) =>
-      // page/span_start/span_end 对齐你现在的 Location
       "page " +
       l.page.to_string() +
       " [" +
